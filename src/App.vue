@@ -4,7 +4,7 @@
       <v-spacer></v-spacer>
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Hype Logo"
           class="shrink mr-2"
           contain
           src="https://ik.imagekit.io/egrcxziyv/hypeluxury_logo.png?tr=w-100,h-114"
@@ -42,16 +42,19 @@
     <v-main>
       <Index />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import Index from "./components/Index.vue";
+import Footer from "./components/Footer.vue";
 
 @Component({
   components: {
     Index,
+    Footer,
   },
 })
 export default class App extends Vue {
