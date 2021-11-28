@@ -31,10 +31,10 @@
       ></v-select>
 
       <v-btn text>
-        <v-icon>mdi-open-in-new</v-icon>
+        <v-icon color="primary">mdi-open-in-new</v-icon>
       </v-btn>
       <v-btn text>
-        <v-icon>mdi-account</v-icon>
+        <v-icon color="primary">mdi-account</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
     </v-app-bar>

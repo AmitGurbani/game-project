@@ -36,5 +36,8 @@ export default class LandingScreen extends Vue {}
   h1 {
       font-size: 60px;
   }
+  p {
+      font-size: 20px;
+  }
 }
 </style>
