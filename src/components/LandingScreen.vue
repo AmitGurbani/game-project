@@ -1,6 +1,6 @@
 <template>
   <div class="landing-image">
-    <div class="landing-text">
+    <div class="landing-image-text">
       <h1>DRIVE THE FUTURE</h1>
       <p>EXPERIENCE LUXARY LIKE NEVER BEFORE</p>
       <v-btn color="primary" class="black--text">Book now on Hype | $100</v-btn>
@@ -24,20 +24,19 @@ export default class LandingScreen extends Vue {}
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-}
-
-.landing-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  h1 {
+  &-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    h1 {
       font-size: 60px;
-  }
-  p {
+    }
+    p {
       font-size: 20px;
+    }
   }
 }
 </style>
