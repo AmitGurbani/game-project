@@ -4,6 +4,7 @@
     <CarFeatures />
     <Requirements />
     <Quotes />
+    <Newsletter />
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import LandingScreen from "./LandingScreen.vue";
 import CarFeatures from "./CarFeatures.vue";
 import Requirements from "./Requirements.vue";
 import Quotes from "./Quotes.vue";
+import Newsletter from "./Newsletter.vue";
 
 @Component({
   components: {
@@ -20,6 +22,7 @@ import Quotes from "./Quotes.vue";
     CarFeatures,
     Requirements,
     Quotes,
+    Newsletter,
   },
 })
 export default class Index extends Vue {}
