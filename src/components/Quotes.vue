@@ -24,12 +24,27 @@
         </v-col>
         <v-spacer v-if="q % 2 != 0"></v-spacer>
       </v-row>
+      <template v-if="quotes.length == 0">
+        <v-row v-for="n in 3" :key="n">
+          <v-spacer v-if="n % 2 != 0"></v-spacer>
+          <v-col cols="8">
+            <v-skeleton-loader
+              class="mx-auto mt-2"
+              max-width="300"
+              type="article"
+            ></v-skeleton-loader>
+          </v-col>
+          <v-spacer v-if="n % 2 == 0"></v-spacer>
+        </v-row>
+      </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../firestoredb";
 import QuoteCard from "./QuoteCard.vue";
 
 @Component({
@@ -38,31 +53,14 @@ import QuoteCard from "./QuoteCard.vue";
   },
 })
 export default class Quotes extends Vue {
-  quotes = [
-    {
-      avatar: "https://randomuser.me/api/portraits/men/44.jpg",
-      name: "EVAN LAHTI",
-      designation: "PC Gamer",
-      message: "One of my car highlights of the year.",
-      when: "October 18, 2018",
-    },
-    {
-      avatar: "https://randomuser.me/api/portraits/women/14.jpg",
-      name: "JADA GRIFFIN",
-      designation: "Nerdreactor",
-      message:
-        "The next big thing in the world of streaming and survival games",
-      when: "Deceber 21, 2018",
-    },
-    {
-      avatar: "https://randomuser.me/api/portraits/men/55.jpg",
-      name: "AARON WILLIAMS",
-      designation: "Uproxx",
-      message:
-        "Snoop Dogg Playing The Wildly Entertaining 'SOS' is Ridiculous.",
-      when: "December 24, 2018",
-    },
-  ];
+  quotes: any = [];
+
+  async mounted() {
+    const querySnapshot = await getDocs(collection(db, "quotes"));
+    querySnapshot.forEach((doc) => {
+      this.quotes.push(doc.data());
+    });
+  }
 }
 </script>
 
