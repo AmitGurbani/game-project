@@ -1,61 +1,61 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app dark>
+      <v-spacer></v-spacer>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://ik.imagekit.io/egrcxziyv/hypeluxury_logo.png?tr=w-100,h-114"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
       </div>
+      <v-spacer></v-spacer>
+      <v-btn text>MAIN</v-btn>
+      <v-btn text>About</v-btn>
+      <v-btn text>Car Features</v-btn>
+      <v-btn text>Requirements</v-btn>
+      <v-btn text>Quotes</v-btn>
 
       <v-spacer></v-spacer>
+      <v-select
+        :items="languages"
+        v-model="selectedLanguage"
+        solo
+        background-color="transparent"
+        flat
+        class="mt-8"
+        style="max-width: 7%"
+      ></v-select>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn text>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
+      <v-btn text>
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <Index />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { Vue, Component } from "vue-property-decorator";
+import Index from "./components/Index.vue";
 
-export default Vue.extend({
-  name: 'App',
-
+@Component({
   components: {
-    HelloWorld,
+    Index,
   },
-
-  data: () => ({
-    //
-  }),
-});
+})
+export default class App extends Vue {
+  languages = ["ENG", "RUS", "FRA", "DEU"];
+  selectedLanguage = "ENG";
+}
 </script>
